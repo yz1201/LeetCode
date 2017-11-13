@@ -52,9 +52,17 @@ public class MyLinkList {
 		System.out.println();
 	}
 
+	// 删除指定节点
+
+	public void delete(int index) {
+		Node current = findByPos(index);
+		Node previous = findByPos(index - 1);
+		previous.next = current.next;
+	}
+
 	// 查询指定下标的节点信息
 	public Node findByPos(int index) {
-		
+
 		Node current = head;
 		pos = 0;
 		while (pos < index) {
@@ -62,6 +70,17 @@ public class MyLinkList {
 			pos++;
 		}
 
+		return current;
+	}
+
+	// 根据data查询节点
+
+	public Node findByData(int data){
+		Node current = head;	
+		while(current.data != data){
+			current = current.next;
+		}	
+		
 		return current;
 	}
 

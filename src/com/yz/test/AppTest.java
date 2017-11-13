@@ -30,12 +30,14 @@ public class AppTest {
 		System.out.println("---------------list my list----------------");
 		System.out.println("**************************");
 		list.displayAllNodes();
-		list2.displayAllNodes();
+		// list2.displayAllNodes();
 
 		System.out.println("**************************");
 
-		AddTwoNumbers.getNodeList(list, list2);
+		// AddTwoNumbers.getNodeList(list, list2);
 
+		list.findByData(5).getNext().display();
+		
 		long end = System.currentTimeMillis();
 		// System.out.println(end);
 
