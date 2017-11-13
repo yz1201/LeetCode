@@ -1,7 +1,8 @@
+package com.yz.test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddTwoSum {
+public class TwoSum {
 
 	public static int getIndices(int[] arr, int target) {
 		int len = arr.length;
