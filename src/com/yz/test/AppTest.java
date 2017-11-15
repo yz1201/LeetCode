@@ -29,14 +29,13 @@ public class AppTest {
 
 		System.out.println("---------------list my list----------------");
 		System.out.println("**************************");
-		list.displayAllNodes();
-		// list2.displayAllNodes();
+	
 
 		System.out.println("**************************");
 
 		// AddTwoNumbers.getNodeList(list, list2);
 
-		list.findByData(5).getNext().display();
+		System.out.println("longest length: "+LongestSubstring.getNoRepeatingSubstring("aaaabcde"));
 		
 		long end = System.currentTimeMillis();
 		// System.out.println(end);
