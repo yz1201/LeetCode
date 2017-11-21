@@ -1,15 +1,23 @@
 package com.yz.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 
+ * @author Administrator
+ *
+ */
 public class PalindromicSubstring {
 
+	/**
+	 * 拉出每个子串，判断是不是回文，回文存入集合，再找最长的那串。
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public static String findLongestPalindromicSubstring(String s) {
 		int len = s.length();
 		// int start = 0;
@@ -21,8 +29,9 @@ public class PalindromicSubstring {
 		for (int i = 0; i < len; i++) {
 			for (int j = i + 1; j < len; j++) {
 				String string = s.substring(i, j + 1);
-				System.out.println("substrings: " + string);
+
 				if (isPalindromic(string)) {
+
 					map.put(string.length(), string);
 				}
 			}
@@ -41,22 +50,30 @@ public class PalindromicSubstring {
 	}
 
 	public static boolean isPalindromic(String string) {
-		if (string.length() < 3) {
-			return false;
-		}
 
 		for (int i = 0; i < string.length(); i++) {
-			if (string.charAt(i) == string.charAt(string.length() - i - 1)) {
-				return true;
+
+			if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
+				return false;
 			}
 		}
 
-		return false;
+		return true;
+	}
+
+	/**
+	 * 动态规划？
+	 * 
+	 * @return
+	 */
+	public static String findLongestPalindromicSubstring2() {
+
+		return " ";
 	}
 
 	public static void main(String[] args) {
-		String string = PalindromicSubstring.findLongestPalindromicSubstring("abcb");
-		System.out.println(string);
+		String string = PalindromicSubstring.findLongestPalindromicSubstring("abcabcbbbbbb");
+		System.out.println("answer: " + string);
 
 	}
 
