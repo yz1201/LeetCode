@@ -8,6 +8,12 @@ import com.yz.tool.ArraysTool;
 
 public class Sum2Zero {
 
+	
+	/**
+	 *  failed!@dbdj1201
+	 * @param nums
+	 * @return
+	 */
 	public static Set<Integer[]> sum2Zero(Integer[] nums) {
 		if (nums.length < 3) {
 			return null;
@@ -24,7 +30,18 @@ public class Sum2Zero {
 							ans[0] = nums[i];
 							ans[1] = nums[j];
 							ans[2] = nums[k];
-							answer.add(ans);
+
+							if (answer.size() <= 1) {
+								answer.add(ans);
+								System.out.println(" == == == ");
+								ArraysTool.intArrays(ans);
+							} else if (answer.size() > 1) {
+								for (Integer[] temp : answer) {
+									if (!ArraysTool.arraysCompare(ans, temp))
+										answer.add(ans);
+								}
+							}
+
 						}
 					}
 				}
@@ -43,21 +60,16 @@ public class Sum2Zero {
 		Integer[] test = { -1, 0, 1, 2, 0, -2 };
 		Arrays.sort(test);
 
-		Integer[] i1 = { 1, 2, 1 };
-		Integer[] i2 = { 1, 2, 1 };
-
-		System.out.println(i1 == i2);
-
 		Set<Integer[]> answer = sum2Zero(test);
 
-		// for (Integer[] nums : answer) {
-		// for (int i = 0; i < nums.length; i++) {
-		// System.out.print(nums[i] + " ");
-		// if (i == nums.length - 1) {
-		// System.out.println(" ");
-		// }
-		// }
-		// }
+//		for (Integer[] nums : answer) {
+//			for (int i = 0; i < nums.length; i++) {
+//				System.out.print(nums[i] + " ");
+//				if (i == nums.length - 1) {
+//					System.out.println(" ");
+//				}
+//			}
+//		}
 
 	}
 
