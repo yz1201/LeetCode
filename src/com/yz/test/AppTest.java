@@ -7,7 +7,23 @@ import com.yz.tool.Node;
 
 public class AppTest {
 
-	@Test
+	public static void main(String[] args) {
+		int i = 0;
+		int[] nums = { 1, 2, 3, 4, 5 };
+		while (nums[i] == nums[++i])
+			;
+		System.out.println(i);
+
+		for (int j = 0; j < 20; j++) {
+			System.out.println(j+" === ");
+			if (j < 10) {
+				System.out.println("j" + j);
+				break;
+			}
+		}
+	}
+
+	/* @Test */
 	public void test() {
 
 		long start = System.currentTimeMillis();
@@ -29,14 +45,13 @@ public class AppTest {
 
 		System.out.println("---------------list my list----------------");
 		System.out.println("**************************");
-	
 
 		System.out.println("**************************");
 
 		// AddTwoNumbers.getNodeList(list, list2);
 
-		System.out.println("longest length: "+LongestSubstring.getNoRepeatingSubstring("aaaabcde"));
-		
+		System.out.println("longest length: " + LongestSubstring.getNoRepeatingSubstring("aaaabcde"));
+
 		long end = System.currentTimeMillis();
 		// System.out.println(end);
 
