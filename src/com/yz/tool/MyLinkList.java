@@ -22,12 +22,14 @@ public class MyLinkList {
 		head = node;
 	}
 
+	// 删除头结点
 	public Node deleteFirstNode() {
 		Node temp = head;
 		head = temp.next;
 		return temp;
 	}
 
+	// 增加第index个节点
 	public void add(int index, int data) {
 		Node node = new Node(data); // need to be added
 		Node current = head;
@@ -38,6 +40,7 @@ public class MyLinkList {
 			pos++;
 		}
 		node.next = current;
+		System.out.println("current: " + current);
 		previous.next = node;
 		pos = 0;
 	}
@@ -60,6 +63,11 @@ public class MyLinkList {
 		previous.next = current.next;
 	}
 
+	// 删除倒数第N个节点
+	public void deleteNNode(int N) {
+		delete(this.length() - N - 1);
+	}
+
 	// 查询指定下标的节点信息
 	public Node findByPos(int index) {
 
@@ -75,12 +83,12 @@ public class MyLinkList {
 
 	// 根据data查询节点
 
-	public Node findByData(int data){
-		Node current = head;	
-		while(current.data != data){
+	public Node findByData(int data) {
+		Node current = head;
+		while (current.data != data) {
 			current = current.next;
-		}	
-		
+		}
+
 		return current;
 	}
 
@@ -92,5 +100,17 @@ public class MyLinkList {
 			pos++;
 		}
 		return pos;
+	}
+
+	public static void main(String[] args) {
+		Node node = new Node(0);
+
+		MyLinkList list = new MyLinkList();
+		list.addFirstNode(node);
+		
+		list.add(1, 1);
+		list.add(2, 2);
+//		list.add(3, 3);
+//		list.add(4, 4);
 	}
 }
