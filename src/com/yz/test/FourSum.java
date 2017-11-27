@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class FourSum {
 
@@ -19,8 +20,28 @@ public class FourSum {
 				e.printStackTrace();
 			}
 		}
-
+		Set<List<Integer>> set = new HashSet<List<Integer>>();
 		for (int i = 0; i < len; i++) {
+			int tempTarget = target - nums[i];
+
+			for (int j = i + 1; j < len; j++) {
+				for (int k = j + 1, l = len - 1; k < l;) {
+					if (nums[j] + nums[k] + nums[l] == tempTarget) {
+						List<Integer> listTemp = new ArrayList<>();
+						listTemp.add(nums[j]);
+						listTemp.add(nums[k]);
+						listTemp.add(nums[l]);
+						if (set.add(listTemp))
+							result.add(listTemp);
+						k++;
+						l--;
+					} else if (nums[l] + nums[j] + nums[k] < target)
+						k++;
+					else
+						l--;
+
+				}
+			}
 
 		}
 
